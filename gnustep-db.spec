@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/db/gstep-db-%{version}.tar.gz
+# Source0-md5:	57b8345f6892e33a7785cb07c67b083e
 Patch0:		%{name}-update.patch
 Patch1:		%{name}-rootdir.patch
 Patch2:		%{name}-paths.patch
