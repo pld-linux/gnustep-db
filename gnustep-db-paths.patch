@@ -1,0 +1,27 @@
+--- gstep-db-1.2.0/doc/GNUmakefile.orig	Thu Feb 24 17:55:40 2000
++++ gstep-db-1.2.0/doc/GNUmakefile	Wed Jan  1 20:14:27 2003
+@@ -47,19 +47,24 @@
+ 
+ INSTALL_TEXI_FILES = version.tmpl.texi
+ INSTALL_TEXT_MAIN = install.tmpl.texi
++INSTALL_DOC_INSTALL_DIR = Developer/GDL/ReleaseNotes/$(VERSION)
+ 
+ README_TEXI_FILES = version.tmpl.texi
+ README_TEXT_MAIN = readme.tmpl.texi
++README_DOC_INSTALL_DIR = Developer/GDL/ReleaseNotes/$(VERSION)
+ 
+ ANNOUNCE_TEXI_FILES = version.tmpl.texi news.tmpl.texi
+ ANNOUNCE_TEXT_MAIN = announce.tmpl.texi
++ANNOUNCE_DOC_INSTALL_DIR = Developer/GDL/ReleaseNotes/$(VERSION)
+ 
+ NEWS_TEXI_FILES = version.tmpl.texi
+ NEWS_TEXT_MAIN = news.tmpl.texi
++NEWS_DOC_INSTALL_DIR = Developer/GDL/ReleaseNotes/$(VERSION)
+ 
+ gdl_TEXI_FILES = \
+ gdl.tmpl.texi \
+ version.tmpl.texi
++gdl_DOC_INSTALL_DIR = Developer/GDL/Manual
+ 
+ #
+ # Include in the rules

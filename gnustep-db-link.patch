@@ -1,0 +1,62 @@
+--- gstep-db-1.2.0/eoaccess/Makefile.preamble.orig	Thu Feb 24 17:55:54 2000
++++ gstep-db-1.2.0/eoaccess/Makefile.preamble	Wed Jan  1 20:19:30 2003
+@@ -35,6 +35,8 @@
+ # Flags dealing with compiling and linking
+ #
+ 
++include $(GNUSTEP_MAKEFILES)/extensions.make
++
+ # Additional flags to pass to the preprocessor
+ ADDITIONAL_CPPFLAGS = $(FND_DEFINE) $(RUNTIME_DEFINE)
+ 
+@@ -66,4 +68,4 @@
+ # systems where building a shared library requires to pass to the linker
+ # all the libraries the target library depends upon.
+ 
+-LIBRARIES_DEPEND_UPON = -l$(FOUNDATION_LIBRARY_NAME)
++LIBRARIES_DEPEND_UPON = -l$(FOUNDATION_LIBRARY_NAME) -I$(AUXILIARY_TOOL_LIBS)
+--- gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile.orig	Thu Feb 24 17:56:02 2000
++++ gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile	Wed Jan  1 20:38:17 2003
+@@ -73,6 +73,8 @@
+ Postgres95Values.h \
+ Postgres95Exceptions.h
+ 
++libgdl-postgresql_LIBRARIES_DEPEND_UPON += -lpq
++
+ -include Makefile.preamble
+ 
+ -include GNUmakefile.local
+--- gstep-db-1.2.0/eoadaptors/Sybase/GNUmakefile.orig	Thu Feb 24 17:56:06 2000
++++ gstep-db-1.2.0/eoadaptors/Sybase/GNUmakefile	Wed Jan  1 20:30:24 2003
+@@ -36,7 +36,7 @@
+ C_FILES = 
+ 
+ # The Objective-C source files to be compiled
+-OBJC_FILES = \
++libgdl-sybase_OBJC_FILES = \
+ SybaseAdaptor.m \
+ SybaseContext.m \
+ SybaseChannel.m \
+@@ -44,10 +44,10 @@
+ SybaseValues.m \
+ SybaseExceptions.m
+ 
+-HEADER_FILES_DIR = .
+-HEADER_FILES_INSTALL_DIR = /$(GNUSTEP_FND_DIR)/eoadaptors/Sybase
++libgdl-sybase_HEADER_FILES_DIR = .
++libgdl-sybase_HEADER_FILES_INSTALL_DIR = /$(GNUSTEP_FND_DIR)/eoadaptors/Sybase
+ 
+-HEADER_FILES = \
++libgdl-sybase_HEADER_FILES = \
+ SybaseAdaptor.h \
+ SybaseContext.h \
+ SybaseChannel.h \
+@@ -55,6 +55,8 @@
+ SybaseValues.h \
+ SybaseExceptions.h
+ 
++libgdl-sybase_LIBRARIES_DEPEND_UPON += -lsybdb
++
+ -include Makefile.preamble
+ 
+ -include GNUmakefile.local

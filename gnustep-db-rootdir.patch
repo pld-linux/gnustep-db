@@ -1,0 +1,12 @@
+--- gstep-db-1.2.0/Makefile.postamble.orig	Thu Feb 24 17:55:36 2000
++++ gstep-db-1.2.0/Makefile.postamble	Wed Jan  1 16:24:21 2003
+@@ -43,7 +43,8 @@
+ 
+ # Things to do after installing
+ after-install::
+-	$(INSTALL_DATA) gdl.make $(GNUSTEP_MAKEFILES)
++	install -d $(INSTALL_ROOT_DIR)$(GNUSTEP_MAKEFILES)
++	$(INSTALL_DATA) gdl.make $(INSTALL_ROOT_DIR)$(GNUSTEP_MAKEFILES)
+ 
+ # Things to do before uninstalling
+ # before-uninstall::

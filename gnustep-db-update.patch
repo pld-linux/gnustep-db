@@ -1,0 +1,72 @@
+--- gstep-db-1.2.0/eoadaptors/Postgres95/Postgres95Values.h.orig	Thu Feb 24 17:56:03 2000
++++ gstep-db-1.2.0/eoadaptors/Postgres95/Postgres95Values.h	Wed Jan  1 15:05:31 2003
+@@ -33,6 +33,7 @@
+ #include <Foundation/NSValue.h>
+ #include <Foundation/NSData.h>
+ #include <Foundation/NSDate.h>
++#include <Foundation/NSCalendarDate.h>
+ #include <eoaccess/EONull.h>
+ 
+ @class EOAttribute;
+--- gstep-db-1.2.0/eoadaptors/Oracle7/Makefile.postamble.orig	Thu Feb 24 17:55:57 2000
++++ gstep-db-1.2.0/eoadaptors/Oracle7/Makefile.postamble	Wed Jan  1 15:08:38 2003
+@@ -61,7 +61,7 @@
+ 	-rm -rf shared_obj $(BUNDLE_NAME).gdladaptor 
+ 
+ 
+-strings:
++strings::
+ 	-mkdir English.lproj                  		     >/dev/null 2>&1 || true
+ 	./get-local-strings *.[hm] 
+ 	mv *.strings English.lproj
+--- gstep-db-1.2.0/eoadaptors/Sybase/SybaseAdaptor.m.orig	Thu Feb 24 17:56:07 2000
++++ gstep-db-1.2.0/eoadaptors/Sybase/SybaseAdaptor.m	Wed Jan  1 20:33:51 2003
+@@ -40,7 +40,7 @@
+ #include <Foundation/NSProcessInfo.h>
+ #endif
+ 
+-#include <extensions/support.h>
++/* #include <extensions/support.h> */
+ #include <extensions/NSException.h>
+ 
+ #include <eoaccess/common.h>
+@@ -356,7 +356,7 @@
+ 
+     /* Set the maximum text size */
+     if(dbprocess && maxTextSize)
+-	dbsetopt(dbprocess, DBTEXTLIMIT, maxTextSize);
++	dbsetopt(dbprocess, DBTEXTLIMIT, NULL, maxTextSize);
+ 
+     /* Change the database */
+     databaseName = [[connectionDictionary objectForKey:@"databaseName"]
+--- gstep-db-1.2.0/eoadaptors/Sybase/SybaseValues.h.orig	Thu Feb 24 17:56:08 2000
++++ gstep-db-1.2.0/eoadaptors/Sybase/SybaseValues.h	Wed Jan  1 20:32:18 2003
+@@ -31,6 +31,8 @@
+ #include <Foundation/NSValue.h>
+ #include <Foundation/NSData.h>
+ #include <Foundation/NSDate.h>
++#include <Foundation/NSCalendarDate.h>
++
+ #include <eoaccess/EONull.h>
+ 
+ @class EOAttribute;
+--- gstep-db-1.2.0/eoadaptors/Sybase/SybaseValues.m.orig	Thu Feb 24 17:56:08 2000
++++ gstep-db-1.2.0/eoadaptors/Sybase/SybaseValues.m	Wed Jan  1 20:36:00 2003
+@@ -69,7 +69,7 @@
+ 			autorelease];
+ 	case SYBBIT:
+ 	    return [[[self allocWithZone:zone]
+-			initWithCString:Ltoa (*(DBBIT*)bytes, buffer, 10)]
++			initWithCString:Ltoa (*(DBBOOL*)bytes, buffer, 10)]
+ 			autorelease];
+ 	case SYBINT1:
+ 	    return [[[self allocWithZone:zone]
+@@ -181,7 +181,7 @@
+ 
+     switch (type) {
+ 	case SYBBIT:
+-	    RETURN_NUMBER(DBBIT, numberWithChar:);
++	    RETURN_NUMBER(DBBOOL, numberWithChar:);
+ 	case SYBINT1:
+ 	    RETURN_NUMBER(DBTINYINT, numberWithChar:);
+ 	case SYBINT2:
