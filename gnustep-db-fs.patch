@@ -108,3 +108,58 @@
  include $(GNUSTEP_MAKEFILES)/common.make
  
  include ./Version
+--- gstep-db-1.2.0/eoaccess/Makefile.preamble.orig	2004-07-05 21:14:19.712250000 +0200
++++ gstep-db-1.2.0/eoaccess/Makefile.preamble	2004-07-05 21:27:45.444968312 +0200
+@@ -47,7 +47,7 @@
+ ADDITIONAL_CFLAGS = 
+ 
+ # Additional include directories the compiler should search
+-ADDITIONAL_INCLUDE_DIRS = -I..
++ADDITIONAL_INCLUDE_DIRS = -I.. -I$(GNUSTEP_SYSTEM_ROOT)/Library/Headers/$(LIBRARY_COMBO)/gnustep
+ 
+ # Additional LDFLAGS to pass to the linker
+ ADDITIONAL_LDFLAGS = 
+--- gstep-db-1.2.0/eoadaptors/Postgres95/Makefile.preamble.orig	2000-02-24 17:56:02.000000000 +0100
++++ gstep-db-1.2.0/eoadaptors/Postgres95/Makefile.preamble	2004-07-05 21:33:24.499584273 +0200
+@@ -45,7 +45,7 @@
+ ADDITIONAL_CFLAGS = $(POSTGRES95_CFLAGS)
+ 
+ # Additional include directories the compiler should search
+-ADDITIONAL_INCLUDE_DIRS = -I../..
++ADDITIONAL_INCLUDE_DIRS = -I../.. -I$(GNUSTEP_SYSTEM_ROOT)/Library/Headers/$(LIBRARY_COMBO)/gnustep
+ 
+ # Additional LDFLAGS to pass to the linker
+ ADDITIONAL_LDFLAGS = 
+--- gstep-db-1.2.0/eoadaptors/Sybase/Makefile.preamble.orig	2000-02-24 17:56:06.000000000 +0100
++++ gstep-db-1.2.0/eoadaptors/Sybase/Makefile.preamble	2004-07-05 21:33:45.551532669 +0200
+@@ -45,7 +45,7 @@
+ ADDITIONAL_CFLAGS = 
+ 
+ # Additional include directories the compiler should search
+-ADDITIONAL_INCLUDE_DIRS = -I../..
++ADDITIONAL_INCLUDE_DIRS = -I../.. -I$(GNUSTEP_SYSTEM_ROOT)/Library/Headers/$(LIBRARY_COMBO)/gnustep
+ 
+ # Additional LDFLAGS to pass to the linker
+ ADDITIONAL_LDFLAGS = 
+--- gstep-db-1.2.0/eointerface/Makefile.preamble.orig	2000-02-24 17:56:10.000000000 +0100
++++ gstep-db-1.2.0/eointerface/Makefile.preamble	2004-07-05 21:32:45.136030382 +0200
+@@ -45,7 +45,7 @@
+ ADDITIONAL_CFLAGS = 
+ 
+ # Additional include directories the compiler should search
+-ADDITIONAL_INCLUDE_DIRS = -I..
++ADDITIONAL_INCLUDE_DIRS = -I.. -I$(GNUSTEP_SYSTEM_ROOT)/Library/Headers/$(LIBRARY_COMBO)/gnustep
+ 
+ # Additional LDFLAGS to pass to the linker
+ ADDITIONAL_LDFLAGS = 
+--- gstep-db-1.2.0/tests/GNUmakefile.orig	2004-07-05 21:14:19.717249000 +0200
++++ gstep-db-1.2.0/tests/GNUmakefile	2004-07-05 21:34:45.068252037 +0200
+@@ -35,7 +35,7 @@
+ #
+ TEST_LIBRARY_NAME = gdl
+ 
+-gdl_INCLUDE_DIRS = -I..
++gdl_INCLUDE_DIRS = -I.. -I$(GNUSTEP_SYSTEM_ROOT)/Library/Headers/$(LIBRARY_COMBO)/gnustep
+ gdl_LIB_DIRS = -L../eoaccess/$(GNUSTEP_OBJ_DIR)
+ gdl_LD_LIB_DIRS = ../../eoaccess/$(GNUSTEP_OBJ_DIR):
+ gdl_LIBS = 
