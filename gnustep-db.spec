@@ -2,7 +2,7 @@ Summary:	The GNUstep Database Library
 Summary(pl):	Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
-Release:	5
+Release:	6
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/gstep-db-%{version}.tar.gz
