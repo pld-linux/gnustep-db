@@ -39,7 +39,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The GNUstep Database Library is a hierarchy of Objective-C classes
 that provide a three-tiered architecture for developing database
 applications.
-   
+
 %description -l pl
 GNUstep Database Library, czyli biblioteka baz danych GNUstepa, to
 hierarchia klas Objective-C, udostêpniaj±ca trójwarstwow± architekturê
