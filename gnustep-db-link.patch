@@ -14,14 +14,14 @@
  # all the libraries the target library depends upon.
  
 -LIBRARIES_DEPEND_UPON = -l$(FOUNDATION_LIBRARY_NAME)
-+LIBRARIES_DEPEND_UPON = -l$(FOUNDATION_LIBRARY_NAME) -I$(AUXILIARY_TOOL_LIBS)
++LIBRARIES_DEPEND_UPON = -l$(FOUNDATION_LIBRARY_NAME) $(AUXILIARY_TOOL_LIBS)
 --- gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile.orig	Thu Feb 24 17:56:02 2000
 +++ gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile	Wed Jan  1 20:38:17 2003
 @@ -73,6 +73,8 @@
  Postgres95Values.h \
  Postgres95Exceptions.h
  
-+libgdl-postgresql_LIBRARIES_DEPEND_UPON += -lpq
++libgdl-postgresql_LIBRARIES_DEPEND_UPON += -lpq $(FND_LIBS) -L../../eoaccess/$(GNUSTEP_OBJ_DIR) -lgnustep-db
 +
  -include Makefile.preamble
  
@@ -55,7 +55,7 @@
  SybaseValues.h \
  SybaseExceptions.h
  
-+libgdl-sybase_LIBRARIES_DEPEND_UPON += -lsybdb
++libgdl-sybase_LIBRARIES_DEPEND_UPON += -lsybdb $(FND_LIBS) -L../../eoaccess/$(GNUSTEP_OBJ_DIR) -lgnustep-db
 +
  -include Makefile.preamble
  
