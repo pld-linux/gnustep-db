@@ -2,7 +2,7 @@ Summary:	The GNUstep Database Library
 Summary(pl):	Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/gstep-db-%{version}.tar.gz
@@ -11,12 +11,17 @@ Patch0:		%{name}-update.patch
 Patch1:		%{name}-rootdir.patch
 Patch2:		%{name}-paths.patch
 Patch3:		%{name}-link.patch
+Patch4:		%{name}-fs.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	freetds-devel
-BuildRequires:	gnustep-base-devel
-BuildRequires:	gnustep-extensions-devel
+BuildRequires:	gnustep-base-devel >= 1.7.0
+BuildRequires:	gnustep-extensions-devel >= 0.8.6-2
 BuildRequires:	postgresql-backend-devel
 BuildRequires:	postgresql-devel
+BuildRequires:	tetex-tex-misc
+BuildRequires:	texinfo-texi2dvi
+Requires:	gnustep-base >= 1.7.0
+Requires:	gnustep-extensions >= 0.8.6-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gsdir		/usr/lib/GNUstep
@@ -108,9 +113,10 @@ Pliki nag³ówkowe interfejsu Sybase/MS SQL do GNUstepa.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
-. %{_gsdir}/System/Makefiles/GNUstep.sh
+. %{_gsdir}/System/Library/Makefiles/GNUstep.sh
 SYBASE_CLAGS=" " SYBASE_LDFLAGS="-lsybdb"
 POSTGRES95_CFLAGS="-I/usr/include/postgresql/server" POSTGRES95_LDFLAGS="-lpq"
 export SYBASE_CFLAGS SYBASE_LDFLAGS POSTGRES95_CFLAGS POSTGRES95_LDFLAGS
@@ -129,7 +135,7 @@ done
 
 %install
 rm -rf $RPM_BUILD_ROOT
-. %{_gsdir}/System/Makefiles/GNUstep.sh
+. %{_gsdir}/System/Library/Makefiles/GNUstep.sh
 %{__make} install \
 	INSTALL_ROOT_DIR=$RPM_BUILD_ROOT \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_gsdir}/System \
@@ -140,7 +146,7 @@ mv -f eoadaptors/README README.eoadaptors
 %{__make} -C doc install \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_gsdir}/System
 # not (yet?) supported by rpm-compress-doc
-find $RPM_BUILD_ROOT%{_gsdir}/System/Documentation \
+find $RPM_BUILD_ROOT%{_gsdir}/System/Library/Documentation \
 	-type f -a ! -name '*.html' | xargs gzip -9nf
 
 %clean
@@ -158,25 +164,27 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog SUPPORT TODO README.eoadaptors eointerface/EOController.README
-# ANNOUNCE INSTALL NEWS README
-%docdir %{_prefix}/System/Documentation
-%{_gsdir}/System/Documentation/Developer/GDL
-%{_gsdir}/System/Documentation/info/*.info*
+%docdir %{_prefix}/System/Library/Documentation
+%dir %{_gsdir}/System/Library/Documentation/Developer/GDL
+%{_gsdir}/System/Library/Documentation/Developer/GDL/ReleaseNotes
 
 %dir %{_gsdir}/System/Library/Bundles/Adaptors
 
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so.*
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so.*
 
 %files devel
 %defattr(644,root,root,755)
+%docdir %{_prefix}/System/Library/Documentation
+%{_gsdir}/System/Library/Documentation/Developer/GDL/Manual
+%{_gsdir}/System/Library/Documentation/info/*.info*
 
-%{_gsdir}/System/Headers/gnustep/eoaccess
-%dir %{_gsdir}/System/Headers/gnustep/eoadaptors
-%{_gsdir}/System/Headers/gnustep/eointerface
+%{_gsdir}/System/Library/Headers/gnustep/eoaccess
+%dir %{_gsdir}/System/Library/Headers/gnustep/eoadaptors
+%{_gsdir}/System/Library/Headers/gnustep/eointerface
 
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so
 
-%{_gsdir}/System/Makefiles/gdl.make
+%{_gsdir}/System/Library/Makefiles/gdl.make
 
 %files postgresql
 %defattr(644,root,root,755)
@@ -184,20 +192,19 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_gsdir}/System/Library/Bundles/Adaptors/Postgres95.gdladaptor
 %{_gsdir}/System/Library/Bundles/Adaptors/Postgres95.gdladaptor/Resources
 %attr(755,root,root) %{_gsdir}/System/Library/Bundles/Adaptors/Postgres95.gdladaptor/%{gscpu}
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so.*
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so.*
 
 %files postgresql-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Headers/gnustep/eoadaptors/PostgreSQL
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so
+%{_gsdir}/System/Library/Headers/gnustep/eoadaptors/PostgreSQL
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so
 
 %files sybase
 %defattr(644,root,root,755)
 %doc eoadaptors/Sybase/README
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so.*
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so.*
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so.*
 
 %files sybase-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Headers/gnustep/eoadaptors/Sybase
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so
+%{_gsdir}/System/Library/Headers/gnustep/eoadaptors/Sybase
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so

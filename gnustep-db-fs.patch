@@ -1,0 +1,133 @@
+--- gstep-db-1.2.0/doc/GNUmakefile.orig	2003-07-20 15:05:27.000000000 +0200
++++ gstep-db-1.2.0/doc/GNUmakefile	2003-07-20 15:08:07.000000000 +0200
+@@ -23,8 +23,6 @@
+ # Install into the system root by default
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../Version
+--- gstep-db-1.2.0/eoaccess/GNUmakefile.orig	2000-02-24 17:55:54.000000000 +0100
++++ gstep-db-1.2.0/eoaccess/GNUmakefile	2003-07-20 15:08:33.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../Version
+--- gstep-db-1.2.0/eoaccess/Makefile.preamble.orig	2003-07-20 15:05:27.000000000 +0200
++++ gstep-db-1.2.0/eoaccess/Makefile.preamble	2003-07-20 15:09:11.000000000 +0200
+@@ -35,7 +35,7 @@
+ # Flags dealing with compiling and linking
+ #
+ 
+-include $(GNUSTEP_MAKEFILES)/extensions.make
++include $(GNUSTEP_MAKEFILES)/Additional/extensions.make
+ 
+ # Additional flags to pass to the preprocessor
+ ADDITIONAL_CPPFLAGS = $(FND_DEFINE) $(RUNTIME_DEFINE)
+--- gstep-db-1.2.0/eoadaptors/Oracle7/GNUmakefile.orig	2000-02-24 17:55:56.000000000 +0100
++++ gstep-db-1.2.0/eoadaptors/Oracle7/GNUmakefile	2003-07-20 15:10:04.000000000 +0200
+@@ -37,8 +37,6 @@
+ #   MA 02111-1307 USA
+ ##############################################################################
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../../Version
+--- gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile.orig	2003-07-20 15:05:27.000000000 +0200
++++ gstep-db-1.2.0/eoadaptors/Postgres95/GNUmakefile	2003-07-20 15:11:11.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../../Version
+--- gstep-db-1.2.0/eoadaptors/SQLServer/GNUmakefile.orig	2000-02-24 17:56:04.000000000 +0100
++++ gstep-db-1.2.0/eoadaptors/SQLServer/GNUmakefile	2003-07-20 15:11:37.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../../Version
+--- gstep-db-1.2.0/eoadaptors/Sybase/GNUmakefile.orig	2003-07-20 15:05:27.000000000 +0200
++++ gstep-db-1.2.0/eoadaptors/Sybase/GNUmakefile	2003-07-20 15:11:56.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../../Version
+--- gstep-db-1.2.0/eoadaptors/GNUmakefile.orig	2000-02-24 17:55:55.000000000 +0100
++++ gstep-db-1.2.0/eoadaptors/GNUmakefile	2003-07-20 15:09:26.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../Version
+--- gstep-db-1.2.0/eointerface/GNUmakefile.orig	2000-02-24 17:56:10.000000000 +0100
++++ gstep-db-1.2.0/eointerface/GNUmakefile	2003-07-20 15:12:15.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../Version
+--- gstep-db-1.2.0/tests/GNUmakefile.orig	2000-02-24 17:56:12.000000000 +0100
++++ gstep-db-1.2.0/tests/GNUmakefile	2003-07-20 15:12:41.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ # GNUstep Database Library
+--- gstep-db-1.2.0/GNUmakefile.orig	2000-02-24 17:55:36.000000000 +0100
++++ gstep-db-1.2.0/GNUmakefile	2003-07-20 15:06:43.000000000 +0200
+@@ -22,8 +22,6 @@
+ #  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ #
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ./Version
+--- gstep-db-1.2.0/gdl.make.orig	2000-02-24 17:55:39.000000000 +0100
++++ gstep-db-1.2.0/gdl.make	2003-07-20 15:13:09.000000000 +0200
+@@ -36,6 +36,6 @@
+ AUXILIARY_CPPFLAGS += $(FND_DEFINE) $(RUNTIME_DEFINE)
+ 
+ # We depend upon the Foundation Extensions Library
+-include $(GNUSTEP_MAKEFILES)/extensions.make
++include $(GNUSTEP_MAKEFILES)/Additional/extensions.make
+ 
+-endif
+\ Brak znaku nowej linii na koñcu pliku
++endif
