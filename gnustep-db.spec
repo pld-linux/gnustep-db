@@ -2,7 +2,7 @@ Summary:	The GNUstep Database Library
 Summary(pl):	Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/gstep-db-%{version}.tar.gz
@@ -14,14 +14,14 @@ Patch3:		%{name}-link.patch
 Patch4:		%{name}-fs.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	freetds-devel
-BuildRequires:	gnustep-base-devel >= 1.7.0
-BuildRequires:	gnustep-extensions-devel >= 0.8.6-2
+BuildRequires:	gnustep-base-devel >= 1.7.3
+BuildRequires:	gnustep-extensions-devel >= 0.8.6-3
 BuildRequires:	postgresql-backend-devel
 BuildRequires:	postgresql-devel
 BuildRequires:	tetex-tex-misc
 BuildRequires:	texinfo-texi2dvi
-Requires:	gnustep-base >= 1.7.0
-Requires:	gnustep-extensions >= 0.8.6-2
+Requires:	gnustep-base >= 1.7.3
+Requires:	gnustep-extensions >= 0.8.6-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gsdir		/usr/lib/GNUstep
@@ -49,7 +49,8 @@ do tworzenia aplikacji bazodanowych.
 Summary:	Header files for GNUstep Database Library
 Summary(pl):	Pliki nag³ówkowe biblioteki baz danych GNUstepa
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
+Requires:	gnustep-extensions-devel >= 0.8.6-3
 
 %description devel
 Header files for GNUstep Database Library.
@@ -61,7 +62,7 @@ Pliki nag³ówkowe biblioteki baz danych GNUstepa.
 Summary:	PostgreSQL adaptor for GNUstep Database Library
 Summary(pl):	Interfejs PostgreSQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description postgresql
 PostgreSQL adaptor for GNUstep Database Library.
@@ -73,8 +74,8 @@ Interfejs PostgreSQL dla biblioteki baz danych GNUstepa.
 Summary:	Header files for GNUstep PostgreSQL adaptor
 Summary(pl):	Pliki nag³ówkowe interfejsu PostgreSQL do GNUstepa
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
-Requires:	%{name}-postgresql = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-postgresql = %{version}-%{release}
 
 %description postgresql-devel
 Header files for GNUstep PostgreSQL adaptor.
@@ -86,7 +87,7 @@ Pliki nag³ówkowe interfejsu PostgreSQL do GNUstepa.
 Summary:	Sybase/MS SQL adaptor for GNUstep Database Library
 Summary(pl):	Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description sybase
 Sybase/MS SQL adaptor for GNUstep Database Library.
@@ -98,8 +99,8 @@ Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa.
 Summary:	Header files for GNUstep Sybase/MS SQL adaptor
 Summary(pl):	Pliki nag³ówkowe interfejsu Sybase/MS SQL do GNUstepa
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
-Requires:	%{name}-sybase = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-sybase = %{version}-%{release}
 
 %description sybase-devel
 Header files for GNUstep Sybase/MS SQL adaptor.
@@ -178,9 +179,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_gsdir}/System/Library/Documentation/Developer/GDL/Manual
 %{_gsdir}/System/Library/Documentation/info/*.info*
 
-%{_gsdir}/System/Library/Headers/gnustep/eoaccess
-%dir %{_gsdir}/System/Library/Headers/gnustep/eoadaptors
-%{_gsdir}/System/Library/Headers/gnustep/eointerface
+%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoaccess
+%dir %{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors
+%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eointerface
 
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so
 
@@ -196,7 +197,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files postgresql-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Library/Headers/gnustep/eoadaptors/PostgreSQL
+%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors/PostgreSQL
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so
 
 %files sybase
@@ -206,5 +207,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files sybase-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Library/Headers/gnustep/eoadaptors/Sybase
+%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors/Sybase
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so
