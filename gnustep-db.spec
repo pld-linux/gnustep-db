@@ -2,7 +2,7 @@ Summary:	The GNUstep Database Library
 Summary(pl):	Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/gstep-db-%{version}.tar.gz
@@ -24,7 +24,7 @@ Requires:	gnustep-base >= 1.7.3
 Requires:	gnustep-extensions >= 0.8.6-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_gsdir		/usr/lib/GNUstep
+%define		_gsdir		/usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
@@ -32,7 +32,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
 
 %description
@@ -179,9 +179,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_gsdir}/System/Library/Documentation/Developer/GDL/Manual
 %{_gsdir}/System/Library/Documentation/info/*.info*
 
-%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoaccess
-%dir %{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors
-%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eointerface
+%{_gsdir}/System/Library/Headers/%{libcombo}/eoaccess
+%dir %{_gsdir}/System/Library/Headers/%{libcombo}/eoadaptors
+%{_gsdir}/System/Library/Headers/%{libcombo}/eointerface
 
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgnustep-db*.so
 
@@ -197,7 +197,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files postgresql-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors/PostgreSQL
+%{_gsdir}/System/Library/Headers/%{libcombo}/eoadaptors/PostgreSQL
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-postgresql.so
 
 %files sybase
@@ -207,5 +207,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files sybase-devel
 %defattr(644,root,root,755)
-%{_gsdir}/System/Library/Headers/%{libcombo}/gnustep/eoadaptors/Sybase
+%{_gsdir}/System/Library/Headers/%{libcombo}/eoadaptors/Sybase
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libgdl-sybase.so
