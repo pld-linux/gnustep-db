@@ -1,5 +1,5 @@
 Summary:	The GNUstep Database Library
-Summary(pl):	Biblioteka baz danych GNUstepa
+Summary(pl.UTF-8):   Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
 Release:	7
@@ -40,14 +40,14 @@ The GNUstep Database Library is a hierarchy of Objective-C classes
 that provide a three-tiered architecture for developing database
 applications.
 
-%description -l pl
+%description -l pl.UTF-8
 GNUstep Database Library, czyli biblioteka baz danych GNUstepa, to
-hierarchia klas Objective-C, udostÍpniaj±ca trÛjwarstwow± architekturÍ
+hierarchia klas Objective-C, udostƒôpniajƒÖca tr√≥jwarstwowƒÖ architekturƒô
 do tworzenia aplikacji bazodanowych.
 
 %package devel
 Summary:	Header files for GNUstep Database Library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki baz danych GNUstepa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-extensions-devel >= 0.8.6-3
@@ -55,24 +55,24 @@ Requires:	gnustep-extensions-devel >= 0.8.6-3
 %description devel
 Header files for GNUstep Database Library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki baz danych GNUstepa.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki baz danych GNUstepa.
 
 %package postgresql
 Summary:	PostgreSQL adaptor for GNUstep Database Library
-Summary(pl):	Interfejs PostgreSQL dla biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):   Interfejs PostgreSQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description postgresql
 PostgreSQL adaptor for GNUstep Database Library.
 
-%description postgresql -l pl
+%description postgresql -l pl.UTF-8
 Interfejs PostgreSQL dla biblioteki baz danych GNUstepa.
 
 %package postgresql-devel
 Summary:	Header files for GNUstep PostgreSQL adaptor
-Summary(pl):	Pliki nag≥Ûwkowe interfejsu PostgreSQL do GNUstepa
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe interfejsu PostgreSQL do GNUstepa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	%{name}-postgresql = %{version}-%{release}
@@ -80,24 +80,24 @@ Requires:	%{name}-postgresql = %{version}-%{release}
 %description postgresql-devel
 Header files for GNUstep PostgreSQL adaptor.
 
-%description postgresql-devel -l pl
-Pliki nag≥Ûwkowe interfejsu PostgreSQL do GNUstepa.
+%description postgresql-devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe interfejsu PostgreSQL do GNUstepa.
 
 %package sybase
 Summary:	Sybase/MS SQL adaptor for GNUstep Database Library
-Summary(pl):	Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):   Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description sybase
 Sybase/MS SQL adaptor for GNUstep Database Library.
 
-%description sybase -l pl
+%description sybase -l pl.UTF-8
 Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa.
 
 %package sybase-devel
 Summary:	Header files for GNUstep Sybase/MS SQL adaptor
-Summary(pl):	Pliki nag≥Ûwkowe interfejsu Sybase/MS SQL do GNUstepa
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe interfejsu Sybase/MS SQL do GNUstepa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	%{name}-sybase = %{version}-%{release}
@@ -105,8 +105,8 @@ Requires:	%{name}-sybase = %{version}-%{release}
 %description sybase-devel
 Header files for GNUstep Sybase/MS SQL adaptor.
 
-%description sybase-devel -l pl
-Pliki nag≥Ûwkowe interfejsu Sybase/MS SQL do GNUstepa.
+%description sybase-devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe interfejsu Sybase/MS SQL do GNUstepa.
 
 %prep
 %setup -q -n gstep-db-%{version}
