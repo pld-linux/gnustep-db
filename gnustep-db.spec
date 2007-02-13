@@ -1,5 +1,5 @@
 Summary:	The GNUstep Database Library
-Summary(pl.UTF-8):   Biblioteka baz danych GNUstepa
+Summary(pl.UTF-8):	Biblioteka baz danych GNUstepa
 Name:		gnustep-db
 Version:	1.2.0
 Release:	7
@@ -47,7 +47,7 @@ do tworzenia aplikacji bazodanowych.
 
 %package devel
 Summary:	Header files for GNUstep Database Library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki baz danych GNUstepa
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-extensions-devel >= 0.8.6-3
@@ -60,7 +60,7 @@ Pliki nagłówkowe biblioteki baz danych GNUstepa.
 
 %package postgresql
 Summary:	PostgreSQL adaptor for GNUstep Database Library
-Summary(pl.UTF-8):   Interfejs PostgreSQL dla biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):	Interfejs PostgreSQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -72,7 +72,7 @@ Interfejs PostgreSQL dla biblioteki baz danych GNUstepa.
 
 %package postgresql-devel
 Summary:	Header files for GNUstep PostgreSQL adaptor
-Summary(pl.UTF-8):   Pliki nagłówkowe interfejsu PostgreSQL do GNUstepa
+Summary(pl.UTF-8):	Pliki nagłówkowe interfejsu PostgreSQL do GNUstepa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	%{name}-postgresql = %{version}-%{release}
@@ -85,7 +85,7 @@ Pliki nagłówkowe interfejsu PostgreSQL do GNUstepa.
 
 %package sybase
 Summary:	Sybase/MS SQL adaptor for GNUstep Database Library
-Summary(pl.UTF-8):   Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa
+Summary(pl.UTF-8):	Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -97,7 +97,7 @@ Interfejs Sybase/MS SQL dla biblioteki baz danych GNUstepa.
 
 %package sybase-devel
 Summary:	Header files for GNUstep Sybase/MS SQL adaptor
-Summary(pl.UTF-8):   Pliki nagłówkowe interfejsu Sybase/MS SQL do GNUstepa
+Summary(pl.UTF-8):	Pliki nagłówkowe interfejsu Sybase/MS SQL do GNUstepa
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	%{name}-sybase = %{version}-%{release}
